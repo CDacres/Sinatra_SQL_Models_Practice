@@ -1,0 +1,15 @@
+<h1><%= @page_header %></h1>
+
+<% @posts.each do |post| %>
+
+<h2>Title: <%= post.title %></h2>
+<p> <%= post.body %></p>
+<a href="/posts/<%= post.id %>">View</a>
+<a href="/posts/<%= post.id %>/edit">Edit</a>
+
+<form action="/posts/<%= post.id %>" method="POST">
+	<input type="hidden" name="_method" value="DELETE">
+	<input type="submit" value="Delete">
+</form>
+
+<% end %>
